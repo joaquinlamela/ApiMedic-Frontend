@@ -18,6 +18,13 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="/historic" onClick={toggle}>
             Historic diagnosis
           </SidebarLink>
+
+          <SidebarLink to="/signin" onClick={toggle}>
+            Sign in
+          </SidebarLink>
+          <SidebarLink to="/signup" onClick={toggle}>
+            Sign up
+          </SidebarLink>
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>
