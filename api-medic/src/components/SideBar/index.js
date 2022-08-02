@@ -24,13 +24,6 @@ const Sidebar = ({ isOpen, toggle }) => {
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="/" onClick={toggle}>
-            Home
-          </SidebarLink>
-          <SidebarLink to="/historic" onClick={toggle}>
-            Historic diagnosis
-          </SidebarLink>
-
           {!isLogged ? (
             <>
               <SidebarLink to="/login" onClick={toggle}>
@@ -41,9 +34,17 @@ const Sidebar = ({ isOpen, toggle }) => {
               </SidebarLink>
             </>
           ) : (
-            <SidebarLink to="/login" onClick={logout}>
-              Logout
-            </SidebarLink>
+            <>
+              <SidebarLink to="/" onClick={toggle}>
+                Home
+              </SidebarLink>
+              <SidebarLink to="/historic" onClick={toggle}>
+                Historic diagnosis
+              </SidebarLink>
+              <SidebarLink to="/login" onClick={logout}>
+                Logout
+              </SidebarLink>
+            </>
           )}
         </SidebarMenu>
       </SidebarWrapper>
