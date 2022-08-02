@@ -14,6 +14,7 @@ import { isEmpty } from "lodash";
 import GenderContainer from "./styles/GenderContainer";
 import Label from "../../components/InputWithLabel/styles/Label";
 import CalendarWithLabel from "../../components/Calendar";
+import Title from "../../components/Title";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -32,6 +33,7 @@ const Register = () => {
   return (
     <Container>
       <FormContainer>
+        <Title>Register</Title>
         <Form id="register-form">
           <RegisterContainer>
             <InputWithLabel
