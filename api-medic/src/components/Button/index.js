@@ -47,6 +47,7 @@ const Button = styled.button`
   letter-spacing: -0.02em;
   border: none;
   cursor: pointer;
+  ${(props) => props.disabled && "background: #b8b9ba; cursor: not-allowed;"};
 `;
 
 export default Button;

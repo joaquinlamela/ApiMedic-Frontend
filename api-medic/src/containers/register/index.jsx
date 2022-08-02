@@ -13,12 +13,14 @@ import Button from "../../components/Button";
 import { isEmpty } from "lodash";
 import GenderContainer from "./styles/GenderContainer";
 import Label from "../../components/InputWithLabel/styles/Label";
+import CalendarWithLabel from "../../components/Calendar";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("Male");
+  const [date, setDate] = useState(Date.now());
 
   const handleButtonState = () =>
     isEmpty(name) || isEmpty(email) || isEmpty(password) || isEmpty(gender);
@@ -46,13 +48,19 @@ const Register = () => {
               type="email"
               onChange={setEmail}
             />
-
             <InputWithLabel
               value={password}
               label="Password"
               placeholder="Enter password..."
               type="password"
               onChange={setPassword}
+            />
+
+            <CalendarWithLabel
+              label="Date of birth"
+              date={date}
+              maxDate={Date.now()}
+              setDate={setDate}
             />
 
             <GenderContainer onChange={handleChangeGender}>

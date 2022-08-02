@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   flex-grow: 1;
   overflow-y: hidden;
-  padding-top: 40px;
+  padding: 40px 0px;
   justify-content: center;
   align-items: center;
   gap: 100px;
