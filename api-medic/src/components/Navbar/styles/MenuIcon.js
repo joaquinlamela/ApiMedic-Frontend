@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MEDIA } from "../../../layout";
+import { MEDIA } from "../../../utils/layout";
 
 const MenuIcon = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { MEDIA } from "../../../layout";
+import { MEDIA } from "../../../utils/layout";
 
 const NavMenu = styled.ul`
   display: flex;

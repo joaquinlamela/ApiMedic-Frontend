@@ -10,6 +10,8 @@ import NavItem from "./styles/NavItem";
 import NavLink from "./styles/NavLink";
 import ToggleIcon from "./styles/ToggleIcon";
 import MenuIcon from "./styles/MenuIcon";
+import Button from "../Button";
+import AuthContainer from "./styles/AuthContainer";
 
 const Navbar = ({ openSidebar }) => {
   return (
@@ -45,6 +47,11 @@ const Navbar = ({ openSidebar }) => {
               </NavLink>
             </NavItem>
           </NavMenu>
+
+          <AuthContainer>
+            <Button type="Login">Sign in</Button>
+            <Button type="SignUp">Sign up</Button>
+          </AuthContainer>
 
           <MenuIcon onClick={openSidebar}>
             <ToggleIcon />

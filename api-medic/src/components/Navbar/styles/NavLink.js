@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { COLORS } from "../../../utils/colors";
 
 const NavLink = styled(Link)`
   height: 100%;
@@ -10,10 +11,10 @@ const NavLink = styled(Link)`
   line-height: 19px;
   letter-spacing: -0.02em;
   text-decoration: none;
-  color: #000000;
+  color: ${COLORS.Grey};
 
   :hover {
-    color: #ff7426;
+    color: ${COLORS.Orange};
   }
 `;
 
