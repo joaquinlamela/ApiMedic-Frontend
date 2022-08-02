@@ -7,6 +7,10 @@ const AuthContainer = styled.div`
   align-items: center;
   gap: 40px;
 
+  a {
+    text-decoration: none;
+  }
+
   ${MEDIA.md`
     display: flex;
   `}

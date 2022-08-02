@@ -12,6 +12,7 @@ import ToggleIcon from "./styles/ToggleIcon";
 import MenuIcon from "./styles/MenuIcon";
 import Button from "../Button";
 import AuthContainer from "./styles/AuthContainer";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ openSidebar }) => {
   return (
@@ -49,12 +50,17 @@ const Navbar = ({ openSidebar }) => {
           </NavMenu>
 
           <AuthContainer>
-            <Button size="Medium" type="Login">
-              Sign in
-            </Button>
-            <Button size="Medium" type="SignUp">
-              Sign up
-            </Button>
+            <Link to="/login">
+              <Button size="Medium" type="Login">
+                Sign in
+              </Button>
+            </Link>
+
+            <Link to="/signup">
+              <Button size="Medium" type="SignUp">
+                Sign up
+              </Button>
+            </Link>
           </AuthContainer>
 
           <MenuIcon onClick={openSidebar}>
