@@ -8,12 +8,16 @@ import Container from "./styles/Container";
 import Label from "./styles/Label";
 
 const CalendarWithLabel = ({ label, date, setDate, maxDate }) => {
+  const onChange = (date) => {
+    setDate(date);
+  };
+
   return (
     <Container>
       <Label>{label}</Label>
       <DatePicker
         selected={date}
-        onChange={(date) => setDate(date)}
+        onChange={onChange}
         maxDate={maxDate}
         showDisabledMonthNavigation
         dateFormat="yyyy/MM/dd"

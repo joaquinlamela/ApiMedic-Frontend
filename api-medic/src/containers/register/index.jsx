@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { BiSend } from "react-icons/bi";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { Link } from "react-router-dom";
+import { isEmpty } from "lodash";
 
 import InputWithLabel from "../../components/InputWithLabel";
-
-import { BiSend } from "react-icons/bi";
+import Button from "../../components/Button";
+import Label from "../../components/InputWithLabel/styles/Label";
+import Title from "../../components/Title";
+import CalendarWithLabel from "../../components/Calendar";
+import { axiosInstance } from "../../config/axios";
 
 import Container from "./styles/Container";
 import FormContainer from "./styles/FormContainer";
 import Form from "./styles/Form";
 import RegisterContainer from "./styles/RegisterContainer";
-import Button from "../../components/Button";
 
-import { isEmpty } from "lodash";
 import GenderContainer from "./styles/GenderContainer";
-import Label from "../../components/InputWithLabel/styles/Label";
-import CalendarWithLabel from "../../components/Calendar";
-import Title from "../../components/Title";
 import LinkContainer from "./styles/LinkMessage";
-import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -32,11 +33,36 @@ const Register = () => {
     setGender(event.target.value);
   };
 
+  const handleRegisterForm = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      email,
+      name,
+      password,
+      gender,
+      dateOfBirth: date,
+    };
+
+    try {
+      axiosInstance.post(`users/`, data);
+      Notify.success("Your data was sent successfully.");
+    } catch (err) {
+      Notify.failure(`${err}`);
+    }
+
+    setName("");
+    setEmail("");
+    setGender("Male");
+    setPassword("");
+    setDate(Date.now());
+  };
+
   return (
     <Container>
       <FormContainer>
         <Title>Register</Title>
-        <Form id="register-form">
+        <Form id="register-form" onSubmit={handleRegisterForm}>
           <RegisterContainer>
             <InputWithLabel
               value={name}
