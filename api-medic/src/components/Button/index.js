@@ -19,15 +19,26 @@ const ColorsStyles = {
   `,
 };
 
+const SizeStyles = {
+  Medium: css`
+    width: 90px;
+    height: 40px;
+  `,
+
+  Large: css`
+    width: 160px;
+    height: 45px;
+  `,
+};
+
 const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   ${(props) => props.type && ColorsStyles[props.type]}
+  ${(props) => props.size && SizeStyles[props.size]}
   border-radius: 12px;
-  width: 90px;
-  height: 40px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;

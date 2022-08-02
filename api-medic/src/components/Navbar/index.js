@@ -49,8 +49,12 @@ const Navbar = ({ openSidebar }) => {
           </NavMenu>
 
           <AuthContainer>
-            <Button type="Login">Sign in</Button>
-            <Button type="SignUp">Sign up</Button>
+            <Button size="Medium" type="Login">
+              Sign in
+            </Button>
+            <Button size="Medium" type="SignUp">
+              Sign up
+            </Button>
           </AuthContainer>
 
           <MenuIcon onClick={openSidebar}>
