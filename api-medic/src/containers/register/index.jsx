@@ -15,6 +15,8 @@ import GenderContainer from "./styles/GenderContainer";
 import Label from "../../components/InputWithLabel/styles/Label";
 import CalendarWithLabel from "../../components/Calendar";
 import Title from "../../components/Title";
+import LinkContainer from "./styles/LinkMessage";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -102,6 +104,9 @@ const Register = () => {
         >
           Register <BiSend />
         </Button>
+        <LinkContainer>
+          If you already have an account, <Link to="/login">sign in</Link>
+        </LinkContainer>
       </FormContainer>
     </Container>
   );

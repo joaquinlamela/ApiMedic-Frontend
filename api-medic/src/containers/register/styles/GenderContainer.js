@@ -7,6 +7,7 @@ const GenderContainer = styled.div`
   > div {
     display: flex;
     gap: 20px;
+    font-family: "Inter";
   }
 `;
 
