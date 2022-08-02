@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { COLORS } from "../../../utils/colors";
 
 const Nav = styled.nav`
   display: flex;
   height: 80px;
-  background: #ffffff;
+  background: ${COLORS.White};
   justify-content: center;
   align-items: center;
   position: sticky;

@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import { COLORS } from "../../../utils/colors";
 
-const NavbarContainer = styled.div`
+const FooterContainer = styled.footer`
+  min-height: 200px;
   display: flex;
-  justify-content: space-between;
-  height: 80px;
-  z-index: 1;
-  width: 100%;
-  padding: 0 24px;
+  flex-direction: column;
+  margin-top: auto;
+  padding: 30px 40px 10px;
 
   a::after {
     content: attr(data-end);
-    color: #ff7426;
+    color: ${COLORS.Orange};
   }
 
   a:hover::after {
@@ -20,4 +19,4 @@ const NavbarContainer = styled.div`
   }
 `;
 
-export default NavbarContainer;
+export default FooterContainer;
