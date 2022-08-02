@@ -12,9 +12,20 @@ import ToggleIcon from "./styles/ToggleIcon";
 import MenuIcon from "./styles/MenuIcon";
 import Button from "../Button";
 import AuthContainer from "./styles/AuthContainer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Auth from "../../utils/auth";
 
 const Navbar = ({ openSidebar }) => {
+  const navigate = useNavigate();
+  const authInstance = Auth.getInstance();
+
+  const isLogged = authInstance.isAuthenticated();
+
+  const logout = () => {
+    authInstance.logout();
+    navigate("/login");
+  };
+
   return (
     <>
       <Nav>
@@ -22,46 +33,56 @@ const Navbar = ({ openSidebar }) => {
           <NavLogo data-end="." to="/">
             ApiMedic
           </NavLogo>
-          <NavMenu>
-            <NavItem>
-              <NavLink
-                to="/"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Home
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                to="/recipes"
-                smooth={true}
-                duration={500}
-                spy={true}
-                exact="true"
-                offset={-80}
-              >
-                Historic
-              </NavLink>
-            </NavItem>
-          </NavMenu>
+          {isLogged && (
+            <NavMenu>
+              <NavItem>
+                <NavLink
+                  to="/"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  to="/recipes"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Historic
+                </NavLink>
+              </NavItem>
+            </NavMenu>
+          )}
 
-          <AuthContainer>
-            <Link to="/login">
-              <Button size="Medium" action="Login">
-                Sign in
-              </Button>
-            </Link>
+          {!isLogged ? (
+            <AuthContainer>
+              <Link to="/login">
+                <Button size="Medium" action="Login">
+                  Sign in
+                </Button>
+              </Link>
 
-            <Link to="/signup">
-              <Button size="Medium" action="SignUp">
-                Sign up
+              <Link to="/signup">
+                <Button size="Medium" action="SignUp">
+                  Sign up
+                </Button>
+              </Link>
+            </AuthContainer>
+          ) : (
+            <AuthContainer>
+              <Button size="Medium" action="Logout" onClick={logout}>
+                Logout
               </Button>
-            </Link>
-          </AuthContainer>
+            </AuthContainer>
+          )}
 
           <MenuIcon onClick={openSidebar}>
             <ToggleIcon />

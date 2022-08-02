@@ -3,6 +3,7 @@ export const COLORS = {
   Violet: "#4F46E5",
   DarkViolet: "#3d36c2",
   Red: "#B23D3D",
+  DarkRed: "#992525",
   Blue: "#1C2A39",
   White: "#FFFFFF",
   Grey: "#6b7280",

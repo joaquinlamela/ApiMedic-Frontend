@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLORS } from "../../../utils/colors";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const NavbarContainer = styled.div`
 
   a:hover::after {
     content: attr(data-end);
-    color: #000000;
+    color: ${COLORS.Black};
   }
 `;
 

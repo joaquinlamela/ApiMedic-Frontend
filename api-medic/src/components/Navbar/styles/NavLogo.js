@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
+import { COLORS } from "../../../utils/colors";
 
 const NavLogo = styled(LinkR)`
   cursor: pointer;
@@ -11,10 +12,10 @@ const NavLogo = styled(LinkR)`
   font-weight: 400;
   font-size: 24px;
   line-height: 30px;
-  color: #000000;
+  color: ${COLORS.Black};
 
   :hover {
-    color: #ff7426;
+    color: ${COLORS.Orange};
   }
 `;
 

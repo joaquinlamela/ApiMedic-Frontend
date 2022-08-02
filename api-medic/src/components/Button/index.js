@@ -17,6 +17,14 @@ const ColorsStyles = {
       background: ${COLORS.DarkViolet};
     }
   `,
+
+  Logout: css`
+    background: ${COLORS.Red};
+    color: ${COLORS.White};
+    :hover {
+      background: ${COLORS.DarkRed};
+    }
+  `,
 };
 
 const SizeStyles = {

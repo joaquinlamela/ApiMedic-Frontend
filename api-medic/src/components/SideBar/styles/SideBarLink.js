@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { COLORS } from "../../../utils/colors";
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -9,7 +10,7 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
-  color: #000000;
+  color: ${COLORS.Black};
   cursor: pointer;
   &:hover {
     color: #1f61eb;

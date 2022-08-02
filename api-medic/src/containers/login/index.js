@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiSend } from "react-icons/bi";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { isEmpty } from "lodash";
 
 import InputWithLabel from "../../components/InputWithLabel";
@@ -16,7 +16,11 @@ import LoginContainer from "./styles/LoginContainer";
 
 import LinkContainer from "./styles/LinkMessage";
 
+import Auth from "../../utils/auth";
+
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,8 +35,12 @@ const Login = () => {
     };
 
     try {
-      await axiosInstance.post(`users/login/`, data);
-      Notify.success("Your data was sent successfully.");
+      const response = await axiosInstance.post(`users/login/`, data);
+      Auth.getInstance().setAuthToken(response.data.token);
+      Notify.success(
+        "Now you are logged in, you can access the functionalities."
+      );
+      navigate("/");
     } catch (err) {
       Notify.failure(`${err.response.data.message}`);
     }
@@ -40,6 +48,10 @@ const Login = () => {
     setEmail("");
     setPassword("");
   };
+
+  if (Auth.getInstance().isAuthenticated()) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <Container>
