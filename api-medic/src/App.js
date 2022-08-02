@@ -6,6 +6,7 @@ import Sidebar from "./components/SideBar";
 import Register from "./containers/register";
 import Login from "./containers/login";
 import Footer from "./components/Footer";
+import Home from "./containers/home";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Register />} exact />
         <Route path="/login" element={<Login />} exact />
+        <Route path="/" element={<Home />} exact />
       </Routes>
       <Footer />
     </BrowserRouter>
