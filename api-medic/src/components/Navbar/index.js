@@ -51,13 +51,13 @@ const Navbar = ({ openSidebar }) => {
 
           <AuthContainer>
             <Link to="/login">
-              <Button size="Medium" type="Login">
+              <Button size="Medium" action="Login">
                 Sign in
               </Button>
             </Link>
 
             <Link to="/signup">
-              <Button size="Medium" type="SignUp">
+              <Button size="Medium" action="SignUp">
                 Sign up
               </Button>
             </Link>

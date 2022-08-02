@@ -16,6 +16,7 @@ const CalendarWithLabel = ({ label, date, setDate, maxDate }) => {
         onChange={(date) => setDate(date)}
         maxDate={maxDate}
         showDisabledMonthNavigation
+        dateFormat="yyyy/MM/dd"
       />
     </Container>
   );

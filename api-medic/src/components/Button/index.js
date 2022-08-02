@@ -36,7 +36,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   text-align: center;
-  ${(props) => props.type && ColorsStyles[props.type]}
+  ${(props) => props.action && ColorsStyles[props.action]}
   ${(props) => props.size && SizeStyles[props.size]}
   border-radius: 12px;
   font-family: "Inter";

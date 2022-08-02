@@ -38,21 +38,21 @@ const Register = () => {
               value={name}
               label="Full name"
               placeholder="Enter your full name..."
-              type="text"
+              inputType="text"
               onChange={setName}
             />
             <InputWithLabel
               value={email}
               label="Email"
               placeholder="Enter your email address..."
-              type="email"
+              inputType="email"
               onChange={setEmail}
             />
             <InputWithLabel
               value={password}
               label="Password"
               placeholder="Enter password..."
-              type="password"
+              inputType="password"
               onChange={setPassword}
             />
 
@@ -92,8 +92,9 @@ const Register = () => {
           </RegisterContainer>
         </Form>
         <Button
+          type="submit"
           size="Large"
-          type="SignUp"
+          action="SignUp"
           form="register-form"
           disabled={handleButtonState()}
         >
