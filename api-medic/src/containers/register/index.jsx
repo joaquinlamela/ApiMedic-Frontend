@@ -45,10 +45,10 @@ const Register = () => {
     };
 
     try {
-      axiosInstance.post(`users/`, data);
+      await axiosInstance.post(`users/`, data);
       Notify.success("Your data was sent successfully.");
     } catch (err) {
-      Notify.failure(`${err}`);
+      Notify.failure(`${err.response.data.message}`);
     }
 
     setName("");
