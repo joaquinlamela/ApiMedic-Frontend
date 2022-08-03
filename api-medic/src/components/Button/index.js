@@ -37,6 +37,10 @@ const SizeStyles = {
     width: 160px;
     height: 45px;
   `,
+  ExtraLarge: css`
+    width: 220px;
+    height: 50px;
+  `,
 };
 
 const Button = styled.button`
@@ -56,6 +60,11 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   ${(props) => props.disabled && "background: #b8b9ba; cursor: not-allowed;"};
+
+  svg {
+    font-size: 17px;
+    margin-left: 10px;
+  }
 `;
 
 export default Button;
