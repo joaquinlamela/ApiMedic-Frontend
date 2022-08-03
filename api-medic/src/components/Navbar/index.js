@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 import PropTypes from "prop-types";
@@ -14,6 +15,8 @@ import Button from "../Button";
 import AuthContainer from "./styles/AuthContainer";
 import { Link, useNavigate } from "react-router-dom";
 import Auth from "../../utils/auth";
+import { useRecoilState } from "recoil";
+import { symptomsListAtom } from "../../recoil/symptomsAtom";
 
 const Navbar = ({ openSidebar }) => {
   const navigate = useNavigate();
@@ -21,9 +24,12 @@ const Navbar = ({ openSidebar }) => {
 
   const isLogged = authInstance.isAuthenticated();
 
+  const [_, setSymptoms] = useRecoilState(symptomsListAtom);
+
   const logout = () => {
     authInstance.logout();
     navigate("/login");
+    setSymptoms([]);
   };
 
   return (

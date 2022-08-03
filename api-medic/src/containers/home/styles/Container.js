@@ -9,8 +9,9 @@ const Container = styled.div`
   padding: 40px 0px;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 20px;
   background: ${COLORS.GreyBackground};
+  text-align: center;
 `;
 
 export default Container;

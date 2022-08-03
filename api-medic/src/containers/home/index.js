@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
@@ -12,11 +13,15 @@ import SymptomsContainer from "./styles/SymptomsContainer";
 import Label from "../../components/InputWithLabel/styles/Label";
 import Button from "../../components/Button";
 import { BiSend } from "react-icons/bi";
+import { useRecoilState } from "recoil";
+import { symptomsListAtom } from "../../recoil/symptomsAtom";
+import DiagnosisContainer from "./styles/DiagnosisContainer";
+import DiagnosisCard from "../../components/DiagnosisCard";
 
 const Home = () => {
-  const [symptoms, setSymptoms] = useState([]);
   const [symptomsSelected, setSymptomsSelected] = useState([]);
-  const [diagnosis, setDiagnosis] = useState([]);
+  const [diagnoses, setDiagnoses] = useState([]);
+  const [symptoms, setSymptoms] = useRecoilState(symptomsListAtom);
 
   useEffect(() => {
     const getSymptoms = async () => {
@@ -32,8 +37,8 @@ const Home = () => {
       }
     };
 
-    getSymptoms();
-  }, []);
+    if (symptoms && !symptoms.length) getSymptoms();
+  }, [setSymptoms, symptoms]);
 
   const handleButtonState = () => !symptomsSelected.length;
 
@@ -52,7 +57,7 @@ const Home = () => {
         },
       };
       const response = await axiosInstance.get(`diagnosis/`, config);
-      setDiagnosis(response);
+      setDiagnoses(response.data);
     } catch (err) {
       Notify.failure(`${err.response.data.message}`);
     }
@@ -61,7 +66,7 @@ const Home = () => {
   return (
     <Container>
       <FormContainer>
-        <Title>Request diagnosis</Title>
+        <Title>Request diagnoses</Title>
         <Form id="diagnosis-form" onSubmit={requestDiagnosis}>
           <SymptomsContainer>
             <Label>Select your symptoms</Label>
@@ -82,9 +87,26 @@ const Home = () => {
           form="diagnosis-form"
           disabled={handleButtonState()}
         >
-          Request diagnosis <BiSend />
+          Request diagnoses <BiSend />
         </Button>
       </FormContainer>
+
+      {diagnoses && diagnoses.length > 0 && (
+        <>
+          <Title>Your possible diagnoses</Title>
+
+          <DiagnosisContainer>
+            {diagnoses.map((diag) => (
+              <DiagnosisCard
+                key={diag.Issue.ID}
+                name={diag.Issue.ProfName}
+                specializations={diag.Specialisation}
+                certainty={diag.Issue.Accuracy}
+              />
+            ))}
+          </DiagnosisContainer>
+        </>
+      )}
     </Container>
   );
 };
