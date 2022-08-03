@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                 Home
               </SidebarLink>
               <SidebarLink to="/historic" onClick={toggle}>
-                Historic diagnosis
+                Historic
               </SidebarLink>
               <SidebarLink to="/login" onClick={logout}>
                 Logout
