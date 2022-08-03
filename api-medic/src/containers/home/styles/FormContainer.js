@@ -8,7 +8,7 @@ const FormContainer = styled.div`
   align-items: center;
   background: ${COLORS.White};
   border-radius: 16px;
-  height: 800px;
+  height: 400px;
   width: 320px;
 
   ${MEDIA.sm`
