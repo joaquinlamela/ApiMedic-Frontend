@@ -11,6 +11,7 @@ import DiagnosisContainer from "./styles/DiagnosisContainer";
 import SymptomsContainer from "./styles/SymptomsContainer";
 import ConfirmedDiagnosis from "./styles/ConfirmedDiagnosis";
 import Information from "./styles/Information";
+import { transformDate } from "../../utils/functions";
 
 const ConsultationCard = ({
   id,
@@ -19,17 +20,9 @@ const ConsultationCard = ({
   symptoms,
   confirmedDiagnosis,
 }) => {
-  let formattedDate = new Date(date);
-
-  formattedDate = formattedDate.toLocaleString("en-GB", {
-    day: "numeric",
-    year: "numeric",
-    month: "numeric",
-  });
-
   return (
     <Container to={`/consultation/${id}`}>
-      <Title>Consultation with date {formattedDate}</Title>
+      <Title>Consultation with date {transformDate(date)}</Title>
 
       <SymptomsContainer>
         <Subtitle black bold>

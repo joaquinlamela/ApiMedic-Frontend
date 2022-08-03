@@ -17,11 +17,13 @@ import { useRecoilState } from "recoil";
 import { symptomsListAtom } from "../../recoil/symptomsAtom";
 import DiagnosisContainer from "./styles/DiagnosisContainer";
 import DiagnosisCard from "../../components/DiagnosisCard";
+import Loading from "../../components/Loading";
 
 const Home = () => {
   const [symptomsSelected, setSymptomsSelected] = useState([]);
   const [diagnoses, setDiagnoses] = useState([]);
   const [symptoms, setSymptoms] = useRecoilState(symptomsListAtom);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getSymptoms = async () => {
@@ -48,6 +50,7 @@ const Home = () => {
 
   const requestDiagnosis = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const symptoms = symptomsSelected.map((symptom) => symptom.value);
@@ -58,10 +61,13 @@ const Home = () => {
       };
       const response = await axiosInstance.get(`diagnosis/`, config);
       setDiagnoses(response.data);
+      setIsLoading(false);
     } catch (err) {
       Notify.failure(`${err.response.data.message}`);
     }
   };
+
+  if (isLoading) return <Loading id="loading-icon" />;
 
   return (
     <Container>
