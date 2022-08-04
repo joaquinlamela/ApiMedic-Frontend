@@ -23,7 +23,7 @@ const DiagnosisCard = ({ name, specializations, certainty }) => {
         </Subtitle>
         <ListSpecialist>
           {specializations.map((specialization) => (
-            <span>{specialization.Name}</span>
+            <span key={specialization.ID}>{specialization.Name}</span>
           ))}
         </ListSpecialist>
       </SpecializationsContainer>

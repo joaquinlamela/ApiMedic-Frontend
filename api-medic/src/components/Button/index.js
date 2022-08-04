@@ -41,6 +41,12 @@ const SizeStyles = {
     width: 220px;
     height: 50px;
   `,
+
+  Auto: css`
+    min-width: 250px;
+    width: auto;
+    height: 50px;
+  `,
 };
 
 const Button = styled.button`

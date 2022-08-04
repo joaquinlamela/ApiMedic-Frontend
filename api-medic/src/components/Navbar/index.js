@@ -55,7 +55,7 @@ const Navbar = ({ openSidebar }) => {
               </NavItem>
               <NavItem>
                 <NavLink
-                  to="/recipes"
+                  to="/historic"
                   smooth={true}
                   duration={500}
                   spy={true}

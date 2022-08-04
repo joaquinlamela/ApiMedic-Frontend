@@ -8,6 +8,8 @@ import Login from "./containers/login";
 import Footer from "./components/Footer";
 import Home from "./containers/home";
 import Auth from "./utils/auth";
+import Historic from "./containers/historic";
+import Consultation from "./containers/consultation";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +39,26 @@ function App() {
           }
           exact
         />
+        <Route
+          path="/historic"
+          element={
+            <RequireAuth>
+              <Historic />
+            </RequireAuth>
+          }
+          exact
+        />
+        <Route
+          path="/consultation/:id"
+          element={
+            <RequireAuth>
+              <Consultation />
+            </RequireAuth>
+          }
+          exact
+        />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );
