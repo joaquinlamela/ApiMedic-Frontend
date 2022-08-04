@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 import PropTypes from "prop-types";
@@ -8,6 +9,8 @@ import SidebarMenu from "./styles/SideBarMenu";
 import SidebarLink from "./styles/SideBarLink";
 import { useNavigate } from "react-router-dom";
 import Auth from "../../utils/auth";
+import { useRecoilState } from "recoil";
+import { symptomsListAtom } from "../../recoil/symptomsAtom";
 
 const Sidebar = ({ isOpen, toggle }) => {
   const navigate = useNavigate();
@@ -15,9 +18,12 @@ const Sidebar = ({ isOpen, toggle }) => {
 
   const isLogged = authInstance.isAuthenticated();
 
+  const [_, setSymptoms] = useRecoilState(symptomsListAtom);
+
   const logout = () => {
     authInstance.logout();
     navigate("/login");
+    setSymptoms([]);
   };
 
   return (
