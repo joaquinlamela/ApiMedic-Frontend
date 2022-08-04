@@ -110,13 +110,6 @@ const Register = () => {
                   checked={gender === "Female"}
                 />{" "}
                 Female
-                <input
-                  type="radio"
-                  value="Other"
-                  name="gender"
-                  checked={gender === "Other"}
-                />{" "}
-                Other
               </div>
             </GenderContainer>
           </RegisterContainer>
