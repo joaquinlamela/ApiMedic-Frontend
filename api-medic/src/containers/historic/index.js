@@ -40,6 +40,7 @@ const Historic = () => {
             diagnoses={consultation.diagnosis}
             date={consultation.date}
             symptoms={consultation.symptoms}
+            confirmedDiagnosis={consultation.confirmedDiagnosis}
           />
         ))}
       </ConsultationsContainer>
